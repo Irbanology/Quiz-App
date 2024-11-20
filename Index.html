@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <div class="parent w-full h-screen bg-red-400  flex justify-center items-center">
+        <div id="main-div" class="main hidden bg-blue-500 w-[500px] h-[340px] rounded border-black border-2 m-auto p-4">
+            <h1 class="font-bold text-center m">JavaScript Quiz :-</h1>
+            <div class="m-2 mt-[7%]">
+                <input id="name" type="text" placeholder=" Enter Your Name"
+                    class="p-1 w-[100%] h-[40px] border-black border-2 rounded ">
+            </div>
+            <div class="m-2">
+                <input id="email" type="email" placeholder=" Enter Your Name"
+                    class="w-[100%] h-[40px] p-1 border-black border-2 rounded ">
+            </div>
+            <div class="m-2">
+                <input id="roll-no" type="number" placeholder=" Enter Your Roll-Num"
+                    class="w-[100%] p-1 h-[40px] border-black border-2 rounded ">
+            </div>
+            <div class="m-2">
+                <input id="teach" type="text" placeholder=" Enter Your Teacher Name"
+                    class="w-[100%] p-1  h-[40px] border-black border-2 rounded ">
+            </div>
+            <div class=" flex justify-center items-center mt-[5%]">
+                <button class="btn border-2 p-1 w-[40%] font-bold h-[40px] border-black 
+                    rounded-[8px] m-2 bg-green-700" onclick="chaloo()">Submit</button>
+            </div>
+        </div>
+        <div id="pt-2"
+            class=" main bg-blue-500 w-[500px] h-[340px] rounded border-black border-2 flex justify-center  ">
+            <div class="bg-green-700 h-[10%] w-[100%] p-1">
+                <h1 class="border-2 border-black w-[25%] p-1">Irban khan</h1>
+                <h1 class="border-2 border-black w-[43%] p-1">mehranology@gmail.com</h1>
+                <h1 class="border-2 border-black w-[12%] p-1">131766</h1>
+                <h1 class="border-2 border-black w-[30%] p-1" >Minhaj</h1>
+            </div>
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
