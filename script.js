@@ -8,21 +8,28 @@ var techerN = document.getElementById('teach')
 
 var mainDiv = document.getElementById('main-div')
 var pt = document.getElementById('pt-2')
+var pT = document.getElementById('pt-3')
+
+var spn = document.getElementsByTagName('span')
+console.log(spn);
+
+var NE = document.getElementById('pt-4')
+var RI = document.getElementById('pt-5')
 
 
-console.log();
+
+//  ? Only For Testing :
+mainDiv.classList.add('hidden')
+pt.style.display = 'block'
+pT.style.display = 'block'
 
 function chaloo() {
     console.log("chala");
     mainDiv.classList.add('hidden')
-        pt.style.display = 'flex'
-        pt.children[0].children[0].innerHTML = namee.value
-        pt.children[0].children[1].innerHTML = email.value
-        pt.children[0].children[2].innerHTML = rollNo.value
-        pt.children[0].children[3].innerHTML = techerN.value
-    console.log(pt.children[0].children[0],
-        pt.children[0].children[1],
-        pt.children[0].children[2],
-        pt.children[0].children[3]);
-
+    pt.style.display = 'block'
+    pT.style.display = 'block'
+    NE.children[0].innerHTML = `<span class="font-bold"> Name : <span/>` + namee.value
+    NE.children[1].innerHTML = `<span class="font-bold"> Email : <span/>` + email.value
+    RI.children[0].innerHTML = `<span class="font-bold"> Roll No : <span/>` + rollNo.value
+    RI.children[1].innerHTML = `<span class="font-bold"> Instructor : <span/>` + techerN.value
 }
