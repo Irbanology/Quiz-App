@@ -5,13 +5,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .container {
+            width: 100%;
+            /* background-color: #ddd; */
+            /* border-radius: 15px; */
+        }
+
+        .skills {
+            text-align: right;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            /* color: white; */
+        }
+
+        .js {
+            /* width: 50%; */
+            background-color: #04AA6D;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="parent w-full h-screen bg-red-400  flex justify-center items-center">
-        <div id="main-div" class="main  bg-blue-500 w-[500px] h-[350px] rounded border-black border-2 m-auto p-4">
-            <h1 class="font-bold text-center text-2xl">JavaScript Quiz :-</h1>
-            <div class="m-2 mt-[7%]">
+
+    <!-- STARTING FORM -->
+    <div class="parent w-full h-screen bg-zinc-500  flex justify-center items-center">
+        <div id="main-div" class="main bg-[pink] w-[500px] h-[450px] rounded border-black border-2 m-auto p-4">
+            <h1 class="font-bold text-center mt-5 text-3xl">JavaScript Quiz :-</h1>
+            <div class="m-2 mt-[9%]">
                 <input id="name" type="text" placeholder=" Enter Your Name"
                     class="p-1 outline-none	 w-[100%] h-[40px] border-black border-2 rounded ">
             </div>
@@ -20,8 +41,8 @@
                     class="w-[100%] outline-none	 h-[40px] p-1 border-black border-2 rounded ">
             </div>
             <div class="m-2">
-                <input id="roll-no" type="number" placeholder=" Enter Your Roll-No"
-                    class="w-[100%] p-1 h-[40px] outline-none	 border-black border-2 rounded ">
+                <input id="roll-no" type="text" placeholder=" Enter Your Roll-No"
+                    class="w-[100%] p-1 h-[40px] outline-none border-black border-2 rounded ">
             </div>
             <div class="m-2">
                 <input id="teach" type="text" placeholder=" Enter Your Teacher Name"
@@ -29,11 +50,12 @@
             </div>
             <div class=" flex justify-center items-center mt-[5%]">
                 <button class="btn border-2 p-1 w-[40%] font-bold h-[40px] border-black 
-                    rounded-[8px] m-2 bg-green-700" onclick="chaloo()">Submit</button>
+                    rounded-[8px] m-2 font-bold bg-blue-200 hover:bg-[green] transition cursor-pointer"
+                    onclick="chaloo()">Submit</button>
             </div>
         </div>
-        <div id="pt-2" class=" main hidden bg-blue-500 w-[500px] h-[340px] rounded border-black border-2   ">
-            <div id="pt-3" class=" hidden border-black border-2 bg-white p-2 ">
+        <div id="pt-2" class=" main hidden  w-[500px] h-[450px] bg-blue-300 rounded border-black border-2   ">
+            <div id="pt-3" class=" hidden border-black border-[1px] bg-white p-1 ">
                 <h5 class=" text-center border-2 border-black text-xl font-bold ">Student Info</h5>
                 <div id="pt-4" class=" flex justify-between   p-1">
                     <h1 class=" rounded-[5px] p-1"></h1>
@@ -44,11 +66,58 @@
                     <h1 class=" rounded-[5px] p-1"></h1>
                 </div>
             </div>
-            <div id="pt-6" class="hidden justify-between items-center p-2 ">
-                <h1></h1>
+            <!--QUESTIONS-->
+            <div class="mt-1">
+                <div id="pt-6" class="hidden flex justify-between items-center p-2 ">
+                    <h1 id="ques" class="font-bold-[5px] border-black m-1 border-2 p-1 w-[100%] rounded-[3px] ">Q1 :
+                        Which method
+                        is used to add elements to the end of an array?</h1>
+                </div>
+                <div class="  flex justify-between items-center p-1 ml-2 ">
+                    <ul id="quesOpt">
+                        <li class="w-[460px] font-bold hover:bg-white rounded-[5px] m-1 p-1"></li>
+                        <li class="w-[460px] font-bold hover:bg-white rounded-[5px] m-1 p-1"></li>
+                        <li class="w-[460px] font-bold hover:bg-white rounded-[5px] m-1 p-1"></li>
+                        <li class="w-[460px] font-bold hover:bg-white rounded-[5px] m-1 p-1"></li>
+                    </ul>
+                </div>
+                <br>
+                <div class="flex justify-between items-center  p-1  ">
+                    <h2 id="all" class="ml-3 font-bold"> 1 of 5</h2>
+                    <button onclick="nextquestion()" id="btn"
+                        class="mr-5 w-[70px] rounded-[5px] font-bold border-black border-2 p-1 hover:bg-green-600 transition-all ">Next</button>
+                </div>
             </div>
         </div>
+        <div id="result-div"
+            class="hidden flex justify-between items-center  w-[500px] h-[450px] bg-blue-300 rounded border-black border-2 ">
+            <h1 class="font-bold text-center p-2 bg-[black] text-white text-3xl">RESULT</h1>
+            <!-- <p>JavaScript</p> -->
+            <div class=" mt-[36px] m-4 flex justify-center items-center bg-zinc-500">
+                <h1 class="font-bold">Total Question :</h1>
+                <div id="tot" class="w-[50%] ml-6 m-3 font-bold">
+                    10
+                </div>
+            </div>
+            <div class=" m-4 flex justify-center items-center bg-green-600" >
+                <h1 class="font-bold">Correct Answer :</h1>
+                <div id="cAns" class="w-[50%] ml-6 m-3 font-bold">
+                </div>
+            </div>
+            <div class="m-4 flex justify-center items-center bg-white">
+                <h1 class="font-bold">Wrong Answer :</h1>
+                <div id="wAns" class="w-[50%] ml-6 m-3 font-bold">
+                </div>
+            </div>
 
+            <div class=" flex justify-center items-center">
+                <h1 class="font-bold ">Total Percentage :</h1>
+                <div class="w-[50%] bg-white m-4 w-[100%] rounded">
+                    <div class="skills js text-black rounded px-1" id="percent">
+                        50%</div>
+                </div>
+            </div>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
