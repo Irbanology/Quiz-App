@@ -137,14 +137,13 @@ var correc = document.getElementById('cAns')
 var totalQ = document.getElementById('tot')
 var wroong = document.getElementById('wAns')
 var percentage = document.getElementById('percent')
-console.log(Result);
+console.log(percentage.innerHTML);
 
 
 
 for (var Liopt of quesOpt) {
     Liopt.setAttribute('onclick', 'setQues(this)')
     Liopt.classList.add('cursor-pointer')
-    // if( Liopt != )
 }
 
 
@@ -164,19 +163,24 @@ var total = correctAns / totalQues * 100
 // }
 
 function setQues(ele) {
+    btn.classList.add('pointer-events-none')
     console.log('This');
     if (ele.innerHTML == javascriptQuiz[quesCount].answer) {
         ele.classList.add('bg-[green]')
-        ele.classList.remove('hover:bg-[green]')
+        // ele.classList.remove('hover:bg-[green]')
         ele.classList.add('pointer-events-none')
         correctAns = correctAns + 1
         console.log('');
         console.log(correctAns);
+        btn.classList.remove('pointer-events-none')
+
+        // cccc
 
     } else {
         ele.classList.add('bg-[red]')
         wrongAns = wrongAns + 1
         ele.classList.add('pointer-events-none')
+        btn.classList.remove('pointer-events-none')
         console.log(wrongAns);
     }
     for (var lipt of quesOpt) {
@@ -208,6 +212,8 @@ function chaloo() {
     pt.style.display = 'block'
     pT.style.display = 'block'
     MU.style.display = 'flex'
+    btn.classList.add('pointer-events-none')
+    // btn.classList.add('cursor-no-drop')
     NE.children[0].innerHTML = `<span class="font-bold"> Name: </span>` + namee.value
     RI.children[0].innerHTML = `<span class="font-bold"> Email: </span>` + email.value
     RI.children[1].innerHTML = `<span class="font-bold"> Roll No: </span>` + rollNo.value
@@ -235,6 +241,7 @@ function nextquestion() {
         quesOpt[3].innerHTML = javascriptQuiz[quesCount].options.d
         h2.innerHTML = `${quesCount + 1} of ${javascriptQuiz.length}`
         Liopt.classList.add('pointer-events-none')
+        btn.classList.add('pointer-events-none')
 
     } else {
         console.log("Khtam Question");
@@ -243,6 +250,7 @@ function nextquestion() {
         pT.style.display = 'none'
         MU.style.display = 'none'
         Result.style.display = 'block'
+        btn.classList.add('pointer-events-none')
 
 
         totalQ.innerHTML = totalQues;
@@ -257,10 +265,11 @@ function nextquestion() {
     }
 
 }
-// totalQ.innerHTML = `${totalQues}`
+percentage.innerText = total + "%"
+percentage.style.width = total + '%'
 
 
-console.log(quesOpt);
+console.log(total);
 console.log(quesCount);
 
 
