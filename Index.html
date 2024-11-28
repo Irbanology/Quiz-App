@@ -19,10 +19,10 @@
             /* color: white; */
         }
 
-        .js {
-            /* width: 50%; */
+         /* .js {
+            width: 50%; 
             background-color: #04AA6D;
-        }
+        }*/
     </style>
 </head>
 
@@ -49,7 +49,8 @@
                     class="w-[100%] p-1  h-[40px] border-black outline-none	 border-2 rounded ">
             </div>
             <div class=" flex justify-center items-center mt-[5%]">
-                <button class="btn border-2 p-1 w-[40%] font-bold h-[40px] border-black 
+                <button
+                    class="btn border-2 p-1 w-[40%] font-bold h-[40px] border-black 
                     rounded-[8px] m-2 font-bold bg-zinc-500 hover:bg-[green] hover:text-white transition cursor-pointer"
                     onclick="chaloo()">Submit</button>
             </div>
@@ -99,7 +100,7 @@
                     10
                 </div>
             </div>
-            <div class=" m-4 flex justify-center items-center bg-green-600" >
+            <div class=" m-4 flex justify-center items-center bg-green-600">
                 <h1 class="font-bold">Correct Answer :</h1>
                 <div id="cAns" class="w-[50%] ml-6 m-3 font-bold">
                 </div>
@@ -113,10 +114,17 @@
             <div class=" flex justify-center items-center">
                 <h1 class="font-bold ">Total Percentage :</h1>
                 <div class="w-[50%] bg-white m-4 w-[100%] rounded">
-                    <div class="skills js text-black rounded px-1" id="percent">
+                    <div class="skills js text-black font-bold rounded px-1" id="percent">
                         50%</div>
                 </div>
             </div>
+            
+                        <!-- <div class="m-4 flex w-[50%] border-2 justify-center items-center bg-[red]"> -->
+                            <!-- <button
+                    class="btn border-2 p-1 w-[40%] font-bold h-[40px] border-black  
+                    rounded-[8px] ml-[30%] m-2 font-bold bg-zinc-500 hover:bg-[green] hover:text-white transition cursor-pointer"
+                    onclick="">playagain</button> -->
+                        <!-- </div> -->
         </div>
     </div>
     <script src="script.js"></script>

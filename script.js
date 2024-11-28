@@ -137,7 +137,7 @@ var correc = document.getElementById('cAns')
 var totalQ = document.getElementById('tot')
 var wroong = document.getElementById('wAns')
 var percentage = document.getElementById('percent')
-console.log(percentage.innerHTML);
+console.log(percentage);
 
 
 
@@ -154,7 +154,7 @@ var quesCount = 0
 var totalQues = javascriptQuiz.length
 var correctAns = 0
 var wrongAns = 0
-var total = correctAns / totalQues * 100
+var total;
 
 // console.log(javascriptQuiz.answer );
 
@@ -253,9 +253,21 @@ function nextquestion() {
         btn.classList.add('pointer-events-none')
 
 
+        // if (totalQues > 0) {
+        //     var total = (correctAns / totalQues) * 100;
+        //     console.log(total);
+        // } else {
+        //     var total = 0; // Avoid division by zero
+        // }
+        total = (correctAns / totalQues) * 100;
         totalQ.innerHTML = totalQues;
         wroong.innerHTML = wrongAns;
         correc.innerHTML = correctAns;
+        if (total >= 70) {
+            percentage.classList.add('bg-[green]')
+        } else {
+            percentage.classList.add('bg-[red]')
+        }
         percentage.innerHTML = `${total}%`
         percentage.style.width = total + '%'
     }
@@ -269,7 +281,7 @@ percentage.innerText = total + "%"
 percentage.style.width = total + '%'
 
 
-console.log(total);
+// console.log(total);
 console.log(quesCount);
 
 
