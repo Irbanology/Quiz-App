@@ -225,13 +225,44 @@ function chaloo() {
     quesOpt[2].innerHTML = javascriptQuiz[quesCount].options.c
     quesOpt[3].innerHTML = javascriptQuiz[quesCount].options.d
     h2.innerHTML = `${quesCount + 1} of ${javascriptQuiz.length}`
+    timer()
 }
 
 console.log(quesCount);
 
+// ADDING TIMER :
+var num = 0
+function timer() {
+    var flg = true
+    var inter = setInterval(function hello() {
+        num++
+        console.log(num);
+        if (num === 60) {
+            clearInterval(inter)
+            nextquestion()
+            num = 0
+            flg = false
+            console.log(flg);
+            if (flg == false) {
+                timer()
+            }
+            return
+        }
+
+    }, 1000)
+}
+
+
+
+
 
 function nextquestion() {
+    
     console.log("chala");
+    num = 0
+    console.log("Num" + num);
+
+    timer()
     if (quesCount < javascriptQuiz.length - 1) {
         quesCount = quesCount + 1
         question.innerHTML = `Q${javascriptQuiz[quesCount].num}: ${javascriptQuiz[quesCount].question}`
@@ -242,7 +273,6 @@ function nextquestion() {
         h2.innerHTML = `${quesCount + 1} of ${javascriptQuiz.length}`
         Liopt.classList.add('pointer-events-none')
         btn.classList.add('pointer-events-none')
-
     } else {
         console.log("Khtam Question");
         mainDiv.classList.add('hidden')
@@ -252,13 +282,6 @@ function nextquestion() {
         Result.style.display = 'block'
         btn.classList.add('pointer-events-none')
 
-
-        // if (totalQues > 0) {
-        //     var total = (correctAns / totalQues) * 100;
-        //     console.log(total);
-        // } else {
-        //     var total = 0; // Avoid division by zero
-        // }
         total = (correctAns / totalQues) * 100;
         totalQ.innerHTML = totalQues;
         wroong.innerHTML = wrongAns;
@@ -269,7 +292,7 @@ function nextquestion() {
             percentage.classList.add('bg-[red]')
         }
         percentage.innerHTML = `${total}%`
-        percentage.style.width = total + '%'
+        percentage.style.width = total + '%'    
     }
     for (var liOption of quesOpt) {
         liOption.classList.remove('bg-[red]', 'bg-[green]', 'text-white', 'pointer-events-none')
@@ -277,17 +300,8 @@ function nextquestion() {
     }
 
 }
+
 percentage.innerText = total + "%"
 percentage.style.width = total + '%'
 
-
-// console.log(total);
 console.log(quesCount);
-
-
-
-
-
-// RESULT :-
-// pt-2 in Dono ko hidden karwana hai Result se pehle 
-
